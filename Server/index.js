@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const UserModel = require("./Model/model"); // ✅ Ensure correct import
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -118,6 +119,35 @@ app.post("/saveRoute", async (req, res) => {
         res.status(500).json({ message: "Server error", error: err });
     }
 });
+
+app.post("/saveContact", async (req, res) => {
+    const { email, EmMail } = req.body;
+
+    if (!email || !EmMail) {
+        return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    try {
+        const user = await UserModel.findOne({ Email: email });
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        user.EmergencyContact.push({ Emmail: EmMail });
+        await user.save();
+
+        res.status(200).json({ message: "Contact saved successfully" });
+    } catch (err) {
+        console.error("Error saving contact:", err);
+        res.status(500).json({ message: "Server error", error: err });
+    }
+});
+
+
+
+app.get("/crime_open.csv", (req, res) => {
+    const filePath = path.resolve("C:/Users/raman/Desktop/cep maps/my-map-app/public/crime_open.csv");
+    res.sendFile(filePath);
+  });
+
 
 const port = 3001;
 app.listen(port, () => {
