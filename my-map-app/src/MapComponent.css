@@ -1,0 +1,318 @@
+/* Map Component Styles
+   ========================================================================== */
+
+/* Map Container */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.map-container:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Map View */
+.map-view {
+  width: 100%;
+  height: 100%;
+}
+
+/* User Location Marker */
+.user-location-marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(0, 122, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 122, 255, 0);
+  }
+}
+
+/* Control Panel
+   ========================================================================== */
+
+/* Route Controls */
+.route-controls {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  max-width: 280px;
+  width: calc(100% - 30px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(230, 230, 230, 0.5);
+}
+
+.route-controls:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* Form Elements
+   ========================================================================== */
+
+/* Dropdown */
+.route-dropdown {
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23464646' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.route-dropdown:hover {
+  border-color: #b3d7ff;
+}
+
+.route-dropdown:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.route-dropdown option {
+  font-size: 14px;
+  padding: 8px;
+}
+
+/* Button Styles
+   ========================================================================== */
+
+/* Base Button Styles */
+.nav-button,
+.pause-button,
+.stop-button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::after,
+.pause-button::after,
+.stop-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav-button:hover::after,
+.pause-button:hover::after,
+.stop-button:hover::after {
+  opacity: 1;
+}
+
+/* Navigation Button */
+.nav-button {
+  background-color: #0062cc;
+  color: white;
+}
+
+.nav-button:hover {
+  background-color: #004b9c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.4);
+}
+
+/* Pause/Resume Button States */
+.pause-button {
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.pause {
+  background-color: #dc3545;
+  color: white;
+}
+
+.pause:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.25);
+}
+
+.resume {
+  background-color: #28a745;
+  color: white;
+}
+
+.resume:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.25);
+}
+
+.pause:focus,
+.resume:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.4);
+}
+
+.resume:focus {
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.4);
+}
+
+/* Stop Button */
+.stop-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.stop-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.25);
+}
+
+.stop-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.4);
+}
+
+/* Location Notification */
+.location-notification {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 1000;
+  animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to { opacity: 0; transform: translate(-50%, -10px); }
+}
+
+/* Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px;
+  }
+  
+  .route-controls {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .nav-button, 
+  .pause-button,
+  .stop-button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    height: 350px;
+    border-radius: 8px;
+  }
+  
+  .route-controls {
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    max-width: none;
+    padding: 10px;
+  }
+  
+  .route-dropdown {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
+/* Accessibility Enhancements
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .map-container,
+  .route-controls,
+  .nav-button,
+  .pause-button,
+  .stop-button,
+  .user-location-marker {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+  .nav-button,
+  .pause-button,
+  .stop-button,
+  .route-controls,
+  .route-dropdown {
+    border: 1px solid currentColor;
+  }
+}

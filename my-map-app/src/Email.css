@@ -1,0 +1,240 @@
+/* EmergencyCorner.css */
+.emergency-corner {
+    position: absolute;
+    z-index: 999;
+    right: 20px;
+    top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Collapsed state - just the button */
+  .emergency-corner.collapsed {
+    width: auto;
+    height: auto;
+  }
+  
+  /* Expanded state */
+  .emergency-corner.expanded {
+    width: 280px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .emergency-corner-button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .emergency-form-container {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .emergency-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+  }
+  
+  .emergency-header h3 {
+    margin: 0;
+    color: #e63946;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .emergency-header h3::before {
+    content: "🚨";
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .close-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .current-location {
+    background-color: #f8f9fa;
+    padding: 6px 8px;
+    border-radius: 4px;
+    margin: 0;
+    font-family: monospace;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .emergency-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .message-container label {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  .message-container textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 12px;
+  }
+  
+  .contacts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+  
+  .contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .contact-email {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    color: #e63946;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 4px;
+  }
+  
+  .add-contact {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .add-contact input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .add-btn {
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .send-emergency-btn {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .send-emergency-btn:hover:not(:disabled) {
+    background-color: #d32f2f;
+  }
+  
+  .send-emergency-btn.sending {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .send-emergency-btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .status-message {
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
